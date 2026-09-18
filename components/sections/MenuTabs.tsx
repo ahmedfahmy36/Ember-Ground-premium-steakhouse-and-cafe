@@ -30,11 +30,10 @@ export function MenuTabs() {
   return (
     <div id="menus" className="w-full">
       <div
-        className={`transition-colors duration-500 py-6 border-y ${
-          activeTab === "steakhouse"
+        className={`transition-colors duration-500 py-6 border-y ${activeTab === "steakhouse"
             ? "bg-linen-muted border-border-ink"
             : "bg-[#F2EBD9] border-border-ink"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-center gap-8">
           <button
@@ -43,11 +42,10 @@ export function MenuTabs() {
               setActiveTab("steakhouse");
               window.history.pushState(null, "", "#steakhouse");
             }}
-            className={`font-body text-sm tracking-widest uppercase transition-all duration-300 ${
-              activeTab === "steakhouse"
+            className={`font-body text-sm tracking-widest uppercase transition-all duration-300 ${activeTab === "steakhouse"
                 ? "text-bronze border-b-2 border-bronze pb-1"
                 : "text-ink-muted hover:text-ink pb-1 border-b-2 border-transparent"
-            }`}
+              }`}
           >
             The Cuts
           </button>
@@ -57,11 +55,10 @@ export function MenuTabs() {
               setActiveTab("cafe");
               window.history.pushState(null, "", "#cafe");
             }}
-            className={`font-body text-sm tracking-widest uppercase transition-all duration-300 ${
-              activeTab === "cafe"
+            className={`font-body text-sm tracking-widest uppercase transition-all duration-300 ${activeTab === "cafe"
                 ? "text-terracotta border-b-2 border-terracotta pb-1"
                 : "text-ink-muted hover:text-ink pb-1 border-b-2 border-transparent"
-            }`}
+              }`}
           >
             The Café
           </button>
