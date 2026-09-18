@@ -1,142 +1,48 @@
-<<<<<<< HEAD
-# Ember-Ground-premium-steakhouse-and-cafe
-A premium steakhouse and café Landing page
-=======
-﻿# Ember & Ground
+# Ember & Ground
 
-A premium steakhouse and café landing page built with **Next.js App Router**, **TypeScript**, **Tailwind CSS**, and a **SQLite** reservation backend.
-
----
+A modern, full-stack web application for **Ember & Ground** — a premium steakhouse and café. The application features a high-end, responsive landing page and a fully integrated reservation system that sends automated email confirmations and persists data to a cloud database.
 
 ## Tech Stack
 
-| Layer | Technology | Why |
-|---|---|---|
-| Framework | Next.js 15 (App Router) | Server components, image optimisation, API routes |
-| Language | TypeScript (strict) | Type safety across content, components, and API |
-| Styling | Tailwind CSS (fully customised theme) | Custom colour palette, typography scale, border radius |
-| Fonts | Cormorant Garamond + DM Sans | Editorial serif + restrained sans — intentional pairing |
-| Forms | React Hook Form + Zod | Client and server validation from a shared schema |
-| Database | SQLite via better-sqlite3 | Zero external services — runs fully locally |
-| Images | next/image | WebP/AVIF, lazy loading, correct aspect ratios |
+### Frontend
+- **Framework:** Next.js (App Router) & React
+- **Styling:** Tailwind CSS (Vanilla CSS approach for global theming and custom typography)
+- **UI Components:** Built from scratch for a bespoke, premium feel
+- **Form Management & Validation:** React Hook Form integrated with Zod
+- **Animations/Carousels:** Swiper
 
----
+### Backend & Infrastructure
+- **API:** Next.js Route Handlers (Serverless functions)
+- **Database:** Vercel Postgres (Neon) for serverless, scalable SQL storage
+- **Transactional Emails:** Nodemailer configured with Google SMTP for reliable, domain-agnostic email delivery
+- **Deployment:** Vercel
 
-## Architecture
+## Architecture & Approach
 
-```
-ember-and-ground/
-├── app/
-│   ├── layout.tsx          # Root layout — fonts, metadata, Navbar, Footer
-│   ├── page.tsx            # Home page — server component, composes all sections
-│   ├── globals.css         # Tailwind imports + global reset
-│   └── api/
-│       └── reservations/
-│           └── route.ts    # POST handler — validates, inserts to SQLite
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx      # Sticky nav, scroll state, mobile drawer
-│   │   └── Footer.tsx      # Brand info, contact, social
-│   ├── sections/
-│   │   ├── Hero.tsx        # Full-bleed, editorial type composition
-│   │   ├── About.tsx       # Asymmetric image + text layout
-│   │   ├── Steakhouse.tsx  # MenuCard list, dark tone
-│   │   ├── Cafe.tsx        # MenuCard grid, café tone
-│   │   ├── Gallery.tsx     # Filterable photo grid
-│   │   ├── Location.tsx    # Map embed + address
-│   │   ├── Hours.tsx       # Hours by day, split by service
-│   │   └── ReservationForm.tsx  # Client form → POST /api/reservations
-│   └── ui/
-│       ├── Section.tsx     # Base wrapper (tone, maxWidth, padding)
-│       ├── MenuCard.tsx    # Item card — text-dominant, price-right
-│       └── GalleryGrid.tsx # Filterable masonry grid
-├── content/                # Structured JSON — the mock CMS layer
-│   ├── menu.json
-│   ├── gallery.json
-│   ├── hours.json
-│   └── about.json
-├── lib/
-│   ├── content.ts          # Typed loaders (the CMS adapter seam)
-│   ├── db.ts               # SQLite singleton + insertReservation
-│   ├── reservationSchema.ts # Zod schema shared by client + server
-│   └── utils.ts            # cn() helper
-└── public/images/          # Optimised images served by next/image
-```
+This project embraces a modern, monolithic serverless architecture using Next.js:
 
-### How Frontend and Backend Connect
+1. **Component-Driven Design:** The UI is broken down into reusable, highly customized React components (`components/ui` and `components/sections`). We prioritize a rich aesthetic using a carefully selected color palette (charcoal, oxblood, brass) and smooth micro-interactions.
+2. **Strict Typing & Validation:** All user inputs from the reservation form are strictly validated both on the client-side and server-side using **Zod**. This ensures database integrity and a smooth user experience.
+3. **Serverless Backend:** The reservation endpoint (`/api/reservations`) handles data ingestion securely. It connects to **Vercel Postgres** to persist reservation details and uses **Nodemailer** to immediately dispatch a confirmation email to the guest.
+4. **Seamless Deployment:** The repository is tightly integrated with Vercel, allowing for automatic CI/CD deployments and seamless injection of environment variables (like Database connection URLs and SMTP credentials).
 
-1. User fills out `ReservationForm` (client component)
-2. `react-hook-form` + `zod` validates locally before submission
-3. On submit, a `fetch POST` goes to `/api/reservations`
-4. The API route re-validates with the same Zod schema server-side
-5. Honeypot field and rate limit (5 req/min/IP) are checked
-6. Validated data is inserted into `reservations.db` via `better-sqlite3`
-7. A `{ success: true, id }` or error response is returned
-8. The form transitions to a success or error state
+##  Local Development
 
-### Content Layer
-
-All content lives in `/content/*.json`. The `lib/content.ts` module exports typed loader functions (`getMenuItems()`, `getGalleryItems()`, etc.). These currently read from JSON files directly.
-
-To plug in a real CMS (Sanity, Contentful, etc.), replace the implementation inside `lib/content.ts` only — the component interfaces don't change.
-
----
-
-## Local Setup
-
-### Prerequisites
-- Node.js 20+
-- npm 9+
-
-### Install
-
-```bash
-git clone <repo>
-cd ember-and-ground
-npm install
-```
-
-### Environment Variables
-
-Copy `.env.local.example` to `.env.local`:
-
-```bash
-cp .env.local.example .env.local
-```
-
-No variables are required to run locally. The SQLite database is created automatically at `./reservations.db` on first form submission.
-
-| Variable | Default | Description |
-|---|---|---|
-| `DB_PATH` | `./reservations.db` | Path to SQLite database file |
-| `RESEND_API_KEY` | — | Optional: Resend API key for email notifications |
-| `NOTIFY_EMAIL` | — | Optional: Email to notify on new reservations |
-
-### Run
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000)
-
-### Verify the Reservation Backend
-
-1. Fill in the reservation form and submit
-2. Check that `reservations.db` was created in the project root
-3. Inspect it:
+1. Clone the repository and install dependencies:
    ```bash
-   # Using SQLite CLI
-   sqlite3 reservations.db "SELECT * FROM reservations;"
+   npm install
+   ```
+2. Create your local environment file:
+   ```bash
+   cp .env.example .env.local
+   ```
+3. Open `.env.local` and add your own credentials:
+   - Provide a `POSTGRES_URL` (You can create a free database on Vercel or Neon to get this URL).
+   - Provide `EMAIL_USER` and `EMAIL_PASS` for Nodemailer.
+4. Start the development server:
+   ```bash
+   npm run dev
    ```
 
----
-
-## Design Decisions
-
-- **No glassmorphism, no pill buttons**: Border-radius capped at 10px. Sharp, deliberate.
-- **Two typography identities**: Cormorant Garamond for headings (confident, weight-bearing), DM Sans for body (restrained, readable).
-- **Section layouts vary**: Each section has its own grid logic — intentional asymmetry, not copy-pasted card grids.
-- **Colour palette split**: Charcoal/oxblood/brass for the steakhouse; cream/terracotta/sage for the café. Tied together by the same warm underlying tone.
-- **Server components by default**: Only `GalleryGrid` (filter state) and `ReservationForm` (form state) are `"use client"`. Everything else is a server component.
->>>>>>> 4644681 (Initial commit)
+## 📝 License
+Private repository. All rights reserved.
