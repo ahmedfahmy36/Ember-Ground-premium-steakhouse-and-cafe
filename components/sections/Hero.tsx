@@ -10,7 +10,10 @@ export function Hero() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        controls={false}
+        disablePictureInPicture
+        disableRemotePlayback
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
       >
         <source src="/videos/hero-video.mp4" type="video/mp4" />
       </video>
