@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -13,7 +12,25 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState<string>("hero");
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const target = document.getElementById(targetId);
+    
+    if (target) {
+      // 72px is 4.5rem (h-18), the height of the navbar
+      const top = target.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+    
+    // Update URL hash without causing a jump
+    window.history.pushState(null, "", href);
+    
+    // If mobile menu is open, close it instantly (since we handle scrolling manually now)
+    if (menuOpen) setMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -36,6 +53,10 @@ export function Navbar() {
       if (el) observer.observe(el);
     });
 
+    // Also observe the hero section to clear the active state when scrolled to the top
+    const heroEl = document.getElementById("hero");
+    if (heroEl) observer.observe(heroEl);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
@@ -56,8 +77,9 @@ export function Navbar() {
         `}
       >
         <nav className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-18">
-          <Link
+          <a
             href="#hero"
+            onClick={(e) => handleNavClick(e, "#hero")}
             className="flex flex-col leading-none group"
             aria-label="Ember & Ground — Home"
           >
@@ -67,15 +89,16 @@ export function Navbar() {
             <span className="font-body text-xs tracking-ultra-wide uppercase text-brass">
               &amp; Ground
             </span>
-          </Link>
+          </a>
 
           <div className="hidden md:flex items-center gap-4 lg:gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
-                <Link
+                <a
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className={`font-body text-sm tracking-widest uppercase transition-all duration-200 border-b pb-1 ${
                     isActive
                       ? "text-cream border-cream"
@@ -83,16 +106,17 @@ export function Navbar() {
                   }`}
                 >
                   {link.label}
-                </Link>
+                </a>
               );
             })}
-            <Link
+            <a
               href="#reservations"
               id="nav-reserve-cta"
+              onClick={(e) => handleNavClick(e, "#reservations")}
               className="font-body text-sm tracking-widest uppercase border border-brass text-brass px-5 py-2 hover:bg-brass hover:text-charcoal transition-colors duration-200"
             >
               Reserve
-            </Link>
+            </a>
           </div>
 
           <button
@@ -144,13 +168,10 @@ export function Navbar() {
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
-                onClick={() => {
-                  // Small timeout ensures the navigation triggers before the menu unmounts/hides
-                  setTimeout(closeMobileMenu, 150);
-                }}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`block font-body text-sm tracking-widest uppercase py-4 border-b border-charcoal-600 transition-all duration-200 ${
                   isActive 
                     ? "text-brass bg-charcoal-800 border-l-4 border-l-brass pl-4" 
@@ -158,16 +179,16 @@ export function Navbar() {
                 }`}
               >
                 {link.label}
-              </Link>
+              </a>
             );
           })}
-          <Link
+          <a
             href="#reservations"
-            onClick={() => setTimeout(closeMobileMenu, 150)}
+            onClick={(e) => handleNavClick(e, "#reservations")}
             className="mt-8 font-body text-sm tracking-widest uppercase border border-brass text-brass px-5 py-3 text-center hover:bg-brass hover:text-charcoal transition-colors duration-200"
           >
             Reserve a Table
-          </Link>
+          </a>
         </div>
       </div>
     </>
