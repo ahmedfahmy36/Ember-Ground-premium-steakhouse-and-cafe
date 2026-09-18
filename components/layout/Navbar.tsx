@@ -73,7 +73,7 @@ export function Navbar() {
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className={`font-body text-sm tracking-widest uppercase transition-all duration-200 border-b pb-1 ${
@@ -83,16 +83,16 @@ export function Navbar() {
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
-            <a
+            <Link
               href="#reservations"
               id="nav-reserve-cta"
               className="font-body text-sm tracking-widest uppercase border border-brass text-brass px-5 py-2 hover:bg-brass hover:text-charcoal transition-colors duration-200"
             >
               Reserve
-            </a>
+            </Link>
           </div>
 
           <button
@@ -144,10 +144,13 @@ export function Navbar() {
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={closeMobileMenu}
+                onClick={() => {
+                  // Small timeout ensures the navigation triggers before the menu unmounts/hides
+                  setTimeout(closeMobileMenu, 150);
+                }}
                 className={`block font-body text-sm tracking-widest uppercase py-4 border-b border-charcoal-600 transition-all duration-200 ${
                   isActive 
                     ? "text-brass bg-charcoal-800 border-l-4 border-l-brass pl-4" 
@@ -155,16 +158,16 @@ export function Navbar() {
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             );
           })}
-          <a
+          <Link
             href="#reservations"
-            onClick={closeMobileMenu}
+            onClick={() => setTimeout(closeMobileMenu, 150)}
             className="mt-8 font-body text-sm tracking-widest uppercase border border-brass text-brass px-5 py-3 text-center hover:bg-brass hover:text-charcoal transition-colors duration-200"
           >
             Reserve a Table
-          </a>
+          </Link>
         </div>
       </div>
     </>

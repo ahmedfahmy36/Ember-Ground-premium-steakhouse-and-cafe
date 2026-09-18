@@ -39,6 +39,8 @@ This project embraces a modern, monolithic serverless architecture using Next.js
 3. Open `.env.local` and add your own credentials:
    - Provide a `POSTGRES_URL` (You can create a free database on Vercel or Neon to get this URL).
    - Provide `EMAIL_USER` and `EMAIL_PASS` for Nodemailer.
+   
+   > **Note:** These credentials are only required if you want to test and use the reservation and email system. The rest of the website will still load perfectly fine without them!
 4. Start the development server:
    ```bash
    npm run dev
