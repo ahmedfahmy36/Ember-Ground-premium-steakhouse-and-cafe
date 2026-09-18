@@ -1,0 +1,120 @@
+{
+  "steakhouse": [
+    {
+      "id": "sh-01",
+      "name": "Aberdeenshire Ribcap",
+      "cut": "Ribeye Cap / Spinalis Dorsi",
+      "weight": "280g",
+      "price": 68,
+      "description": "48-day dry-aged on the bone. Cut from Scottish grass-fed Black Angus, the spinalis is the most marbled muscle on the animal. Finished over seasoned oak, served with bone marrow butter and coarse Atlantic salt.",
+      "tags": ["Dry-Aged", "Signature", "Wood-Fired"],
+      "side": "steakhouse"
+    },
+    {
+      "id": "sh-02",
+      "name": "Tomahawk for Two",
+      "cut": "Long-Bone Ribeye",
+      "weight": "1.2kg",
+      "price": 145,
+      "description": "A full rib section left attached to the bone, weighing in at over a kilogram. 35-day dry-aged, carved tableside on a walnut board with chimichurri, roasted marrow, and shallot jus.",
+      "tags": ["For Two", "Dry-Aged", "Tableside"],
+      "side": "steakhouse"
+    },
+    {
+      "id": "sh-03",
+      "name": "Châteaubriand",
+      "cut": "Centre-Cut Tenderloin",
+      "weight": "500g",
+      "price": 98,
+      "description": "The quiet end of the tenderloin — no crust to carry it, so the sourcing has to do the talking. Cumbrian suckler beef, cooked sous vide at 52°C then kissed over charcoal. Béarnaise, grilled watercress.",
+      "tags": ["For Two", "Classic", "Tableside"],
+      "side": "steakhouse"
+    },
+    {
+      "id": "sh-04",
+      "name": "Côte de Boeuf",
+      "cut": "Bone-In Rib Steak",
+      "weight": "700g",
+      "price": 89,
+      "description": "Single bone, aged 28 days. Cross-hatched on a screaming hot grate, rested 12 minutes, sliced at the table. The fat cap is the point — render it slowly, don't rush it.",
+      "tags": ["Dry-Aged", "Bone-In"],
+      "side": "steakhouse"
+    },
+    {
+      "id": "sh-05",
+      "name": "Hanger Steak",
+      "cut": "Onglet",
+      "weight": "300g",
+      "price": 42,
+      "description": "The butcher's cut that rarely makes it to the counter. Coarse-grained, iron-rich, and unreasonably flavourful. Served medium-rare or not at all, with pickled red onion and a sharp Dijon jus.",
+      "tags": ["Butcher's Cut", "Value"],
+      "side": "steakhouse"
+    },
+    {
+      "id": "sh-06",
+      "name": "Wagyu Striploin",
+      "cut": "New York Strip / MB8+",
+      "weight": "200g",
+      "price": 124,
+      "description": "Australian full-blood Wagyu, marble score 8. Less is more: fleur de sel, a sliver of yuzu kosho, and nothing else on the plate that might compete with it.",
+      "tags": ["Wagyu", "Rare Breed", "Seasonal"],
+      "side": "steakhouse"
+    }
+  ],
+  "cafe": [
+    {
+      "id": "cf-01",
+      "name": "Ground Espresso",
+      "category": "Coffee",
+      "price": 3.5,
+      "description": "A double shot of our house blend — a 70/30 split of Ethiopian Yirgacheffe and Colombian Huila, roasted in-house every Tuesday. Short, dense, and slightly sweet without sugar.",
+      "tags": ["House Blend", "In-House Roast"],
+      "side": "cafe"
+    },
+    {
+      "id": "cf-02",
+      "name": "Flat White",
+      "category": "Coffee",
+      "price": 4.5,
+      "description": "Our most ordered drink and the one we spend the most time calibrating. Ristretto base, whole milk textured to 60°C. The ratio matters here — 1:3, not 1:5.",
+      "tags": ["House Blend", "Milk"],
+      "side": "cafe"
+    },
+    {
+      "id": "cf-03",
+      "name": "Filter of the Day",
+      "category": "Coffee",
+      "price": 5,
+      "description": "Single-origin, brewed on a Kalita Wave by hand. Origin rotates with what's tasting best — right now: Kenyan Kirinyaga AA, bright with redcurrant and brown sugar. Ask at the counter what's on today.",
+      "tags": ["Single Origin", "Seasonal", "Filter"],
+      "side": "cafe"
+    },
+    {
+      "id": "cf-04",
+      "name": "Kouign-Amann",
+      "category": "Pastry",
+      "price": 5.5,
+      "description": "Baked each morning at 6am. The dough takes three days of lamination and a final hour folded with sugar that caramelises from the outside in. Eat it warm if you can.",
+      "tags": ["Baked Daily", "Signature"],
+      "side": "cafe"
+    },
+    {
+      "id": "cf-05",
+      "name": "Avocado Toast",
+      "category": "Light Fare",
+      "price": 14,
+      "description": "We weren't going to do it, then we did it properly. Sourdough from the bakery downstairs, smashed avocado with preserved lemon and Aleppo pepper, a soft-poached egg, shaved radish, and a drizzle of our smoked olive oil.",
+      "tags": ["All Day", "Vegetarian"],
+      "side": "cafe"
+    },
+    {
+      "id": "cf-06",
+      "name": "Steak Sandwich",
+      "category": "Light Fare",
+      "price": 22,
+      "description": "Yesterday's trim from the steakhouse — hanger and flat iron, sliced thin, braised briefly in the jus and loaded into a sourdough roll with caramelised onions, aged cheddar, and horseradish crème.",
+      "tags": ["Crossover", "Lunch"],
+      "side": "cafe"
+    }
+  ]
+}

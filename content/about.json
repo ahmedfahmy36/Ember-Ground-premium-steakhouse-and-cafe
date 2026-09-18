@@ -1,0 +1,19 @@
+{
+  "headline": "One building.\nTwo reasons to stay.",
+  "story": [
+    "Ember & Ground opened in 2019 in a converted Victorian grain warehouse in Shoreditch. The building had been empty for eleven years. We liked that it still smelled faintly of old wood.",
+    "The steakhouse came first — a twenty-six cover room built around a single wood-fired hearth that burns through half a tonne of seasoned oak every week. We age our own beef on-site, source single-farm cuts from three producers we visit twice a year, and cook everything live over fire.",
+    "The café opened the following year in the front of the building, facing the street. Different light, different pace, same philosophy: a short list of things done carefully, nothing on the menu that we can't explain."
+  ],
+  "philosophy": [
+    "We don't have a walk-in freezer. Everything we use was alive recently.",
+    "The fire is on from open to close. We don't use gas to cook.",
+    "If a cut isn't ready, it's not on the menu. We pull dishes mid-service."
+  ],
+  "stats": [
+    { "value": "2019", "label": "Opened" },
+    { "value": "48d", "label": "Max dry-age" },
+    { "value": "3", "label": "Farm partners" },
+    { "value": "26", "label": "Covers" }
+  ]
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "g-01",
+    "src": "/images/gallery-ribeye.jpg",
+    "alt": "48-day dry-aged bone-in ribeye on dark slate, herb butter melting",
+    "category": "food",
+    "span": "tall"
+  },
+  {
+    "id": "g-02",
+    "src": "/images/gallery-tomahawk.jpg",
+    "alt": "Tomahawk ribeye presented on walnut board with rosemary and sea salt",
+    "category": "food",
+    "span": "wide"
+  },
+  {
+    "id": "g-03",
+    "src": "/images/gallery-bar.jpg",
+    "alt": "The Ember & Ground bar at night — walnut counter, brass fixtures, backlit whiskey shelves",
+    "category": "interior",
+    "span": "wide"
+  },
+  {
+    "id": "g-04",
+    "src": "/images/gallery-filet.jpg",
+    "alt": "Filet mignon with red wine reduction and pommes dauphine",
+    "category": "food",
+    "span": "normal"
+  },
+  {
+    "id": "g-05",
+    "src": "/images/gallery-coffee.jpg",
+    "alt": "Flat white and butter croissant on terracotta surface, morning light",
+    "category": "ambiance",
+    "span": "tall"
+  },
+  {
+    "id": "g-06",
+    "src": "/images/gallery-cafe.jpg",
+    "alt": "The Ground café interior — terracotta walls, morning sun, pour-over coffee",
+    "category": "interior",
+    "span": "wide"
+  },
+  {
+    "id": "g-07",
+    "src": "/images/gallery-pastries.jpg",
+    "alt": "Three artisan pastries on linen — kouign-amann, mango tart, pain au chocolat",
+    "category": "food",
+    "span": "normal"
+  }
+]

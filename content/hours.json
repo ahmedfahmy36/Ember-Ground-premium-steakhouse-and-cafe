@@ -1,0 +1,20 @@
+{
+  "steakhouse": [
+    { "day": "Monday", "open": false, "hours": null },
+    { "day": "Tuesday", "open": true, "hours": "18:00 — 23:00" },
+    { "day": "Wednesday", "open": true, "hours": "18:00 — 23:00" },
+    { "day": "Thursday", "open": true, "hours": "18:00 — 23:30" },
+    { "day": "Friday", "open": true, "hours": "17:30 — 00:00" },
+    { "day": "Saturday", "open": true, "hours": "17:00 — 00:00" },
+    { "day": "Sunday", "open": true, "hours": "17:00 — 22:00" }
+  ],
+  "cafe": [
+    { "day": "Monday", "open": true, "hours": "07:30 — 15:00" },
+    { "day": "Tuesday", "open": true, "hours": "07:30 — 15:00" },
+    { "day": "Wednesday", "open": true, "hours": "07:30 — 15:00" },
+    { "day": "Thursday", "open": true, "hours": "07:30 — 15:00" },
+    { "day": "Friday", "open": true, "hours": "07:30 — 16:00" },
+    { "day": "Saturday", "open": true, "hours": "08:00 — 16:30" },
+    { "day": "Sunday", "open": true, "hours": "08:00 — 14:30" }
+  ]
+}
