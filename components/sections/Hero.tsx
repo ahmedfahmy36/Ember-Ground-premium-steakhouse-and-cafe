@@ -1,11 +1,26 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Safari sometimes pauses autoplaying videos on initial load.
+    // This forces it to play as soon as the component mounts.
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Ignore play errors (e.g. low power mode strict blocking)
+      });
+    }
+  }, []);
   return (
     <section
       id="hero"
       className="relative min-h-[100svh] flex flex-col overflow-hidden"
     >
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
