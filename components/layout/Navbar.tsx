@@ -28,7 +28,8 @@ export function Navbar() {
           }
         });
       },
-      { rootMargin: "-40% 0px -40% 0px" }
+      // Check a tiny 1% band exactly in the middle of the screen
+      { rootMargin: "-50% 0px -49% 0px" }
     );
 
     navLinks.forEach((link) => {
