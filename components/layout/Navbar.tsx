@@ -46,6 +46,9 @@ export function Navbar() {
     const heroEl = document.getElementById("hero");
     if (heroEl) observer.observe(heroEl);
 
+    const resEl = document.getElementById("reservations");
+    if (resEl) observer.observe(resEl);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
