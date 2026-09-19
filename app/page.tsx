@@ -5,6 +5,7 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Location } from "@/components/sections/Location";
 import { Hours } from "@/components/sections/Hours";
 import { ReservationForm } from "@/components/sections/ReservationForm";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Location />
       <Hours />
       <ReservationForm />
+      <ScrollToTop />
     </>
   );
 }

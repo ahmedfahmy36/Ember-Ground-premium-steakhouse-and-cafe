@@ -63,7 +63,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 4.5rem; /* offset fixed navbar (h-18 = 4.5rem) so anchor links land below it */
   -webkit-text-size-adjust: 100%;
 }

@@ -57,7 +57,6 @@ export function ReservationForm() {
     reset,
     formState: { errors },
   } = useForm<ReservationInput>({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(reservationSchema) as any,
     defaultValues: { party_size: "2", _honeypot: "" },
   });

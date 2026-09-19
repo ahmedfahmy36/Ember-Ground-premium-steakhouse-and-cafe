@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { cinematicScrollTo } from "@/lib/scroll";
 
 const navLinks = [
   { label: "About us", href: "#about" },
@@ -18,15 +19,7 @@ export function Navbar() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.substring(1);
-    const target = document.getElementById(targetId);
-    
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-    
-    window.history.pushState(null, "", href);
-    
+    cinematicScrollTo(targetId);
     if (menuOpen) setMenuOpen(false);
   };
 
