@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "About us", href: "#about" },
   { label: "Menus", href: "#menus" },
   { label: "Gallery", href: "#gallery" },
   { label: "Find Us", href: "#location" },
+  { label: "Hours", href: "#hours" },
 ];
 
 export function Navbar() {
@@ -20,15 +21,12 @@ export function Navbar() {
     const target = document.getElementById(targetId);
     
     if (target) {
-      // 72px is 4.5rem (h-18), the height of the navbar
       const top = target.getBoundingClientRect().top + window.scrollY - 72;
       window.scrollTo({ top, behavior: "smooth" });
     }
     
-    // Update URL hash without causing a jump
     window.history.pushState(null, "", href);
     
-    // If mobile menu is open, close it instantly (since we handle scrolling manually now)
     if (menuOpen) setMenuOpen(false);
   };
 
@@ -44,7 +42,6 @@ export function Navbar() {
           }
         });
       },
-      // Check a tiny 1% band exactly in the middle of the screen
       { rootMargin: "-50% 0px -49% 0px" }
     );
 
@@ -53,7 +50,6 @@ export function Navbar() {
       if (el) observer.observe(el);
     });
 
-    // Also observe the hero section to clear the active state when scrolled to the top
     const heroEl = document.getElementById("hero");
     if (heroEl) observer.observe(heroEl);
 

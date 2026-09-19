@@ -18,7 +18,7 @@ export function About() {
     <Section id="about" tone="linen" maxWidth="2xl">
       <div className="flex flex-col mb-16 pb-8 border-b border-border-ink">
         <p className="font-body text-xs tracking-ultra-wide uppercase text-bronze mb-3">
-          About
+          About Us
         </p>
         <h2 className="font-display text-5xl md:text-6xl font-bold text-ink leading-tight tracking-tight">
           Ember &amp; Ground
